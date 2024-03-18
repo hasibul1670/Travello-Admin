@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-
+import './App.css';
 import LayoutRouter from "./Routes/Routes";
 import './index.css';
 

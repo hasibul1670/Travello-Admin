@@ -4,8 +4,15 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {},
+"theme": {
+    "extend": {
+      "animation": {
+        "spin": "spin 1s linear infinite"
+      }
+    }
+  },
+  "variants": {
+    "animation": ["hover", "focus"]
   },
   plugins: [],
 }

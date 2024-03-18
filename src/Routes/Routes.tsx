@@ -7,9 +7,9 @@ import User from '../pages/User/User';
 const LayoutRouter = () => {
   return (
     <Router>
-      <DefaultLayout> {/* Wrap your routes with the dashboard layout */}
+  <DefaultLayout headerTitle="Dashboard">
         <Routes>
-          <Route path="/" Component={DashboardHome} />
+          <Route path="/" Component={DashboardHome}  />
           <Route path="/users" Component={User} />
           <Route path="/settings" Component={Settings} />
           <Route path="/dashboard" Component={DashboardHome} />

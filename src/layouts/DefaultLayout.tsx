@@ -1,24 +1,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 
 const DefaultLayout: React.FC<any> = ({ children }) => {
+
+    const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+
+  const handleIsSideBarOpen = () => {
+    setIsSideBarOpen(!isSideBarOpen);
+  };
+
   return (
     <div className="flex h-screen">
-      {/* Sidebar */}
-      <div className="w-1/5 bg-gray-700">
-        <Sidebar />
+     
+ <div className={`${isSideBarOpen ? 'lg:w-1/6 ' : 'lg:w-20 '} bg-gray-700 transition-all duration-400`}>
+        <Sidebar 
+        handleIsSideBarOpen={handleIsSideBarOpen}
+        isSideBarOpen={isSideBarOpen}
+         />
       </div>
       
       {/* Main Content */}
-      <div className="w-4/5 bg-red-200 flex flex-col">
-        <header className="shadow">
-       <h2>hello</h2>
-        </header>
-        <main className="p-4 flex-grow"> 
-          {children}
-        </main>
-      </div>
+  <div className={`${isSideBarOpen ? 'w-5/6' : 'w-dvw'} bg-red-200 flex flex-col transition-all duration-400`}>
+    <main className="ml-4 flex-grow"> 
+      {children}
+    </main>
+  </div>
     </div>
   );
 };
